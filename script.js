@@ -7,6 +7,7 @@ const rating = document.querySelector("#rating");
 const genre = document.querySelector("#genre");
 const button = document.querySelector("button");
 const clearButton = document.querySelector("#clear-btn");
+const movieCard = document.querySelector("#movie-card");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
