@@ -20,13 +20,12 @@ body {
 
 header {
   text-align: center;
-  margin-bottom: 2rem;
+  padding: 1.5rem 0;
 }
 
 header h1 {
   color: #f5c518;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 2.2rem;
 }
 
 /* MAIN */
@@ -76,12 +75,13 @@ button[type="submit"] {
   color: #000;
 }
 
-button[type="submit"]:hover {
-  background-color: #ffd84d;
+button[type="submit"] {
+  background: #f5c518;
+  color: #000;
 }
 
 #clear-btn {
-  background-color: #333;
+  background: #2c2c2c;
   color: white;
 }
 
@@ -101,30 +101,42 @@ button[type="submit"]:hover {
 
 #movie-card {
   display: none;
-  background-color: #1f1f1f;
+  background: #1b1b1b;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  margin-top: 1rem;
 }
+
 
 /* POSTER */
 
 #poster {
   width: 100%;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+  max-width: 220px;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 10px;
 }
 
 /* MOVIE DETAILS */
 
-#plot,
-#rating,
+#rating {
+  color: #f5c518;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
 #genre,
 #director,
 #actors,
 #runtime {
+  color: #d0d0d0;
   margin-bottom: 0.75rem;
-  line-height: 1.5;
+}
+
+#plot {
+  margin-top: 1rem;
+  line-height: 1.6;
 }
 
 /* HIGHLIGHT IMPORTANT INFO */
