@@ -206,6 +206,13 @@ button[type="submit"] {
   font-weight: bold;
 }
 
+#trailer {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
 /* DESKTOP / TABLET */
 
 @media (min-width: 768px) {
