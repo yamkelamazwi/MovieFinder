@@ -11,9 +11,8 @@ const runTime = document.querySelector("#runtime");
 const button = document.querySelector("button");
 const clearButton = document.querySelector("#clear-btn");
 const movieCard = document.querySelector("#movie-card");
+const searchResults = document.querySelector("#search-results");
 
-movieCard.style.display = "none";
-poster.hidden = true;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -30,7 +29,7 @@ form.addEventListener("submit", async (event) => {
   button.disabled = true;
   button.textContent = "Searching...";
 
-  const url = `https://www.omdbapi.com/?apikey=d0b490&t=${query}`;
+  const url = `https://www.omdbapi.com/?apikey=d0b490&s=${query}`;
 
   try {
     const response = await fetch(url);
@@ -38,25 +37,20 @@ form.addEventListener("submit", async (event) => {
 
     if (data.Response === "False") {
       results.textContent = data.Error;
-      poster.src = "";
-      poster.hidden = true;
-      plot.textContent = "";
-      rating.textContent = "";
-      genre.textContent = "";
-      movieCard.style.display = "none";
+      searchResults.innerHTML = "";
       return;
     }
 
-    results.textContent = `${data.Title} (${data.Year})`;
-    poster.src = data.Poster;
-    poster.hidden = false;
-    plot.textContent = data.Plot;
-    rating.textContent = `IMDb Rating: ${data.imdbRating}`;
-    genre.textContent = `Genre: ${data.Genre}`;
-    movieCard.style.display = "block";
-    director.textContent = `Director: ${data.Director}`;
-    actors.textContent = `Actors: ${data.Actors}`;
-    runTime.textContent = `Runtime: ${data.Runtime}`;
+    results.textContent = "Select a movie";
+
+    searchResults.innerHTML = "";
+    data.Search.forEach((movie) => {
+      const movieButton = document.createElement("button");
+
+      movieButton.textContent = `${movie.Title} (${movie.Year})`;
+
+      searchResults.appendChild(movieButton);
+    })
 
     input.value = "";
 
@@ -80,6 +74,7 @@ form.addEventListener("submit", async (event) => {
 clearButton.addEventListener("click", () => {
   input.value = "";
   results.textContent = "Search for a movie to begin.";
+  searchResults.innerHTML = "";
   poster.src = "";
   poster.hidden = true
   plot.textContent = "";
