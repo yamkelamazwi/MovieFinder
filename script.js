@@ -72,6 +72,9 @@ form.addEventListener("submit", async (event) => {
     results.textContent =
       `${movieData.Title} (${movieData.Year})`;
 
+    if (movieData.Poster === "N/A") {
+    poster.hidden = true;
+    } else {
     poster.src = movieData.Poster;
     poster.hidden = false;
 
