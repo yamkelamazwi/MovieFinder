@@ -37,6 +37,7 @@ form.addEventListener("submit", async (event) => {
       plot.textContent = "";
       rating.textContent = "";
       genre.textContent = "";
+      movieCard.style.display = "none";
       return;
     }
 
@@ -44,14 +45,24 @@ form.addEventListener("submit", async (event) => {
     poster.src = data.Poster;
     poster.hidden = false;
     plot.textContent = data.Plot;
-    rating.textContent = data.imdbRating;
-    genre.textContent = data.Genre;
+    rating.textContent = `IMDb Rating: ${data.imdbRating}`;
+    genre.textContent = `Genre: ${data.Genre}`;
+    movieCard.style.display = "block";
 
     input.value = "";
+
   } catch (error) {
     console.log(error);
     results.textContent = "Something went wrong. Please try again.";
-  } finally {
+
+    poster.src = "";
+    poster.hidden = true;
+    plot.textContent = "";
+    rating.textContent = "";
+    genre.textContent = "";
+    movieCard.style.display - "none";
+  } 
+  finally {
     button.disabled = false;
     button.textContent = "Search";
   }
@@ -59,12 +70,13 @@ form.addEventListener("submit", async (event) => {
 
 clearButton.addEventListener("click", () => {
   input.value = "";
-  results.textContent = "";
+  results.textContent = "Search for a movie to begin.";
   poster.src = "";
   poster.hidden = true
   plot.textContent = "";
   rating.textContent = "";
   genre.textContent = "";
+  movieCard.style.display = "none";
 
   button.disabled = false;
   button.textContent = "Search";
