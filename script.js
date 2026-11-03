@@ -12,6 +12,9 @@ const button = document.querySelector("button");
 const clearButton = document.querySelector("#clear-btn");
 const movieCard = document.querySelector("#movie-card");
 
+movieCard.style.display = "none";
+poster.hidden = true;
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
