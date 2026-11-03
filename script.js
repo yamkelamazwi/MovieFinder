@@ -12,7 +12,11 @@ const button = document.querySelector("button");
 const clearButton = document.querySelector("#clear-btn");
 const movieCard = document.querySelector("#movie-card");
 const searchResults = document.querySelector("#search-results");
+const trailer = document.querySelector("#trailer");
+const trailerHeading = document.querySelector("#trailer-heading");
+const trailerMessage = document.querySelector("#trailer-message");
 
+const TMDB_API_KEY = "12e5456933e9f85488855179b43f162a";
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -77,6 +81,7 @@ form.addEventListener("submit", async (event) => {
     } else {
     poster.src = movieData.Poster;
     poster.hidden = false;
+}
 
     plot.textContent = movieData.Plot;
     rating.textContent =
@@ -95,6 +100,63 @@ form.addEventListener("submit", async (event) => {
       `Runtime: ${movieData.Runtime}`;
 
     movieCard.style.display = "block";
+
+    trailerHeading.hidden = false;
+    trailerMessage.hidden = false;
+    trailer.hidden = true;
+
+    trailerMessage.textContent =
+    "Loading trailer...";
+
+    const tmdbSearchUrl =
+    `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(movieData.Title)}`;
+
+    const tmdbResponse = await fetch(tmdbSearchUrl);
+    const tmdbData = await tmdbResponse.json();
+
+    if (tmdbData.results.length === 0) {
+    trailerMessage.textContent =
+    "No trailer found.";
+
+    return;
+  }
+
+  const tmdbId = tmdbData.results[0].id;
+
+  const tmdbVideosUrl =
+  `https://api.themoviedb.org/3/movie/${tmdbId}/videos?api_key=${TMDB_API_KEY}`;
+
+  const videosResponse = await fetch(tmdbVideosUrl);
+  const videosData = await videosResponse.json();
+
+  const trailerData = videosData.results.find(
+  (video) =>
+    video.site === "YouTube" &&
+    video.type === "Trailer"
+);
+
+if (!trailerData) {
+  trailerMessage.textContent =
+    "No trailer available.";
+
+  return;
+}
+
+trailer.src =
+  `https://www.youtube.com/embed/${trailerData.key}`;
+
+  trailer.src =
+  `https://www.youtube.com/embed/${trailerData.key}`;
+
+console.log(trailerData);
+console.log(trailer.src);
+
+trailer.hidden = false;
+trailerMessage.hidden = true;
+
+trailer.hidden = false;
+trailerMessage.hidden = true;
+
 
     searchResults.innerHTML = "";
 
@@ -135,6 +197,12 @@ clearButton.addEventListener("click", () => {
   rating.textContent = "";
   genre.textContent = "";
   movieCard.style.display = "none";
+
+  trailer.hidden = true;
+  trailer.src = "";
+  trailerHeading.hidden = true;
+  trailerMessage.hidden = true;
+  trailerMessage.textContent = "";
 
   button.disabled = false;
   button.textContent = "Search";
