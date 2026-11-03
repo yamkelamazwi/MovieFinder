@@ -1,16 +1,168 @@
-#movie-card {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  display: none;
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#poster {
-  max-width: 250px;
+/* BODY */
+
+body {
+  background-color: #141414;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* HEADER */
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: #f5c518;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* MAIN */
+
+main {
+  max-width: 100%;
+}
+
+/* FORM */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* INPUT */
+
+input {
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px auto;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px #f5c518;
+}
+
+/* BUTTONS */
+
+button {
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #f5c518;
+  color: #000;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffd84d;
+}
+
+#clear-btn {
+  background-color: #333;
+  color: white;
+}
+
+#clear-btn:hover {
+  background-color: #555;
+}
+
+/* STATUS MESSAGE */
+
+#results {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* MOVIE CARD */
+
+#movie-card {
+  display: none;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* POSTER */
+
+#poster {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* MOVIE DETAILS */
+
+#plot,
+#rating,
+#genre,
+#director,
+#actors,
+#runtime {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+/* HIGHLIGHT IMPORTANT INFO */
+
+#rating {
+  color: #f5c518;
+  font-weight: bold;
+}
+
+/* DESKTOP / TABLET */
+
+@media (min-width: 768px) {
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  form {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  input {
+    flex: 1;
+  }
+
+  button {
+    min-width: 120px;
+  }
+
+  #movie-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  #poster {
+    margin-bottom: 0;
+  }
 }
