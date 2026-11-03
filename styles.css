@@ -97,6 +97,36 @@ button[type="submit"] {
   font-size: 1rem;
 }
 
+#search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#search-results button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+
+  padding: 0.75rem;
+
+  border-radius: 10px;
+  border: 1px solid #333;
+
+  background-color: #1f1f1f;
+  color: white;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+#search-results button:hover {
+  background-color: #2a2a2a;
+}
+
 /* MOVIE CARD */
 
 #movie-card {
