@@ -46,24 +46,62 @@ form.addEventListener("submit", async (event) => {
     searchResults.innerHTML = "";
     
     data.Search.forEach((movie) => {
-  const movieButton = document.createElement("button");
+    
+    const movieButton = document.createElement("button");
 
-  movieButton.innerHTML = `
-    <img
-      src="${movie.Poster}"
-      alt="${movie.Title}"
-      style="width:60px;height:90px;object-fit:cover;border-radius:6px;"
-    >
+    movieButton.innerHTML = `
+      ${
+      movie.Poster !== "N/A"
+      ? `<img src="${movie.Poster}" alt="${movie.Title} poster">`
+    : ""
+}
 
     <div>
       <strong>${movie.Title}</strong>
-      <br>
-      ${movie.Year}
+      <span>${movie.Year}</span>
     </div>
   `;
 
-  searchResults.appendChild(movieButton);
+  movieButton.addEventListener("click", async () => {
+  const movieUrl = `https://www.omdbapi.com/?apikey=d0b490&i=${movie.imdbID}`;
+
+  try {
+    const response = await fetch(movieUrl);
+    const movieData = await response.json();
+
+    results.textContent =
+      `${movieData.Title} (${movieData.Year})`;
+
+    poster.src = movieData.Poster;
+    poster.hidden = false;
+
+    plot.textContent = movieData.Plot;
+    rating.textContent =
+      `IMDb Rating: ${movieData.imdbRating}`;
+
+    genre.textContent =
+      `Genre: ${movieData.Genre}`;
+
+    director.textContent =
+      `Director: ${movieData.Director}`;
+
+    actors.textContent =
+      `Actors: ${movieData.Actors}`;
+
+    runTime.textContent =
+      `Runtime: ${movieData.Runtime}`;
+
+    movieCard.style.display = "block";
+
+    searchResults.innerHTML = "";
+
+  } catch (error) {
+    console.log(error);
+  }
 });
+
+  searchResults.appendChild(movieButton);
+});  
 
     input.value = "";
 
