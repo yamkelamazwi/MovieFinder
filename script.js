@@ -53,7 +53,7 @@ form.addEventListener("submit", async (event) => {
     movieCard.style.display = "block";
     director.textContent = `Director: ${data.Director}`;
     actors.textContent = `Actors: ${data.Actors}`;
-    runtime.textContent = `Runtime: ${data.Runtime}`;
+    runTime.textContent = `Runtime: ${data.Runtime}`;
 
     input.value = "";
 
@@ -66,7 +66,7 @@ form.addEventListener("submit", async (event) => {
     plot.textContent = "";
     rating.textContent = "";
     genre.textContent = "";
-    movieCard.style.display - "none";
+    movieCard.style.display = "none";
   } 
   finally {
     button.disabled = false;
