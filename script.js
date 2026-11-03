@@ -5,6 +5,9 @@ const poster = document.querySelector("#poster");
 const plot = document.querySelector("#plot");
 const rating = document.querySelector("#rating");
 const genre = document.querySelector("#genre");
+const director = document.querySelector("#director");
+const actors = document.querySelector("#actors");
+const runTime = document.querySelector("#runtime");
 const button = document.querySelector("button");
 const clearButton = document.querySelector("#clear-btn");
 const movieCard = document.querySelector("#movie-card");
@@ -48,6 +51,9 @@ form.addEventListener("submit", async (event) => {
     rating.textContent = `IMDb Rating: ${data.imdbRating}`;
     genre.textContent = `Genre: ${data.Genre}`;
     movieCard.style.display = "block";
+    director.textContent = `Director: ${data.Director}`;
+    actors.textContent = `Actors: ${data.Actors}`;
+    runtime.textContent = `Runtime: ${data.Runtime}`;
 
     input.value = "";
 
