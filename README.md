@@ -9,6 +9,15 @@
 
 ## 📖 Overview
 
+## 🔗 Live Demo
+
+🌐 **Live Site:**  
+https://yamkelamazwi.github.io/movie-app/
+
+📂 **Source Code:**  
+https://github.com/yamkelamazwi/MovieFinder
+
+
 MovieFinder is a mobile-first movie search application that allows users to search for movies, series, and games using the OMDb API.
 
 Users can search by title, browse matching results, and select a result to view detailed information including:
