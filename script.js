@@ -44,13 +44,26 @@ form.addEventListener("submit", async (event) => {
     results.textContent = "Select a movie";
 
     searchResults.innerHTML = "";
+    
     data.Search.forEach((movie) => {
-      const movieButton = document.createElement("button");
+  const movieButton = document.createElement("button");
 
-      movieButton.textContent = `${movie.Title} (${movie.Year})`;
+  movieButton.innerHTML = `
+    <img
+      src="${movie.Poster}"
+      alt="${movie.Title}"
+      style="width:60px;height:90px;object-fit:cover;border-radius:6px;"
+    >
 
-      searchResults.appendChild(movieButton);
-    })
+    <div>
+      <strong>${movie.Title}</strong>
+      <br>
+      ${movie.Year}
+    </div>
+  `;
+
+  searchResults.appendChild(movieButton);
+});
 
     input.value = "";
 
