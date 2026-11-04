@@ -12,7 +12,7 @@
 ## 🔗 Live Demo
 
 🌐 **Live Site:**  
-https://yamkelamazwi.github.io/movie-app/
+https://yamkelamazwi.github.io/MovieFinder/
 
 📂 **Source Code:**  
 https://github.com/yamkelamazwi/MovieFinder
