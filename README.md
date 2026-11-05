@@ -4,10 +4,19 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![OMDb API](https://img.shields.io/badge/API-OMDb-01d277?style=for-the-badge)
+![TMDb API](https://img.shields.io/badge/API-TMDb-032541?style=for-the-badge)
 ![Responsive Design](https://img.shields.io/badge/Mobile_First-Responsive-success?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
 ## 📖 Overview
+
+MovieFinder is a mobile-first movie search application that allows users to search for movies, series, and games using the OMDb API.
+
+Users can browse search results, view detailed movie information, and watch official trailers directly within the application through TMDb and YouTube integration.
+
+The application was built to strengthen core JavaScript concepts such as asynchronous programming, API consumption, DOM manipulation, event handling, working with multiple APIs, and responsive design.
+
+---
 
 ## 🔗 Live Demo
 
@@ -16,22 +25,6 @@ https://yamkelamazwi.github.io/MovieFinder/
 
 📂 **Source Code:**  
 https://github.com/yamkelamazwi/MovieFinder
-
-
-MovieFinder is a mobile-first movie search application that allows users to search for movies, series, and games using the OMDb API.
-
-Users can search by title, browse matching results, and select a result to view detailed information including:
-
-- Movie Poster
-- Plot
-- IMDb Rating
-- Genre
-- Director
-- Cast
-- Runtime
-- Release Year
-
-The application was built to strengthen core JavaScript concepts such as asynchronous programming, API consumption, DOM manipulation, event handling, and responsive design.
 
 ---
 
@@ -46,6 +39,12 @@ The application was built to strengthen core JavaScript concepts such as asynchr
 ✅ Poster thumbnails in search results
 
 ✅ Click-to-view detailed movie information
+
+✅ View movie plot, genre, cast, runtime, director, and IMDb rating
+
+✅ Watch official movie trailers directly in the application
+
+✅ Uses multiple APIs to enrich movie information
 
 ✅ Handles empty input validation
 
@@ -67,8 +66,20 @@ The application was built to strengthen core JavaScript concepts such as asynchr
 - CSS3
 - JavaScript (ES6+)
 - OMDb API
+- TMDb API
 - Fetch API
 - Async/Await
+- YouTube Embedded Player
+
+---
+
+## 📸 Screenshot
+
+```html
+<p align="center">
+  <img src="./images/moviefinder-preview.png" alt="MovieFinder Screenshot" width="800">
+</p>
+```
 
 ---
 
@@ -107,8 +118,8 @@ This project helped reinforce several important JavaScript concepts:
 
 - `fetch()`
 - `async/await`
-- API requests
 - Promise handling
+- Multiple API requests
 
 ### Error Handling
 
@@ -119,9 +130,11 @@ This project helped reinforce several important JavaScript concepts:
 ### Working with APIs
 
 - Search endpoints
+- API chaining
 - Query parameters
 - Handling API responses
-- Using unique IMDb IDs to retrieve detailed information
+- Using IMDb IDs
+- Converting data between different API services
 
 ---
 
@@ -172,10 +185,30 @@ was required to retrieve:
 - Runtime
 - IMDb Rating
 - Director
+- Genre
 
 ---
 
-### 3. Handling Missing Posters
+### 3. Implementing Trailer Support
+
+Adding movie trailers introduced a much more advanced workflow.
+
+The OMDb API does not provide trailer data.
+
+To solve this:
+
+1. Retrieve movie information from OMDb.
+2. Use the movie title to search TMDb.
+3. Retrieve the TMDb movie ID.
+4. Request available videos for that movie.
+5. Identify the official trailer.
+6. Display the trailer using an embedded YouTube player.
+
+This was my first experience combining multiple APIs to create a richer user experience.
+
+---
+
+### 4. Handling Missing Posters
 
 Not every movie in the database contains poster artwork.
 
@@ -187,7 +220,7 @@ Poster: "N/A"
 
 ---
 
-### 4. Mobile-First UI Design
+### 5. Mobile-First UI Design
 
 Creating a clean experience for small screens required:
 
@@ -200,13 +233,15 @@ Creating a clean experience for small screens required:
 
 ## 🌟 Highlights
 
-Some moments that significantly improved the app:
+Some moments that significantly improved the application:
 
-- Transitioning from a single-result search to a multi-result search experience.
-- Displaying movie posters directly within search results.
-- Loading detailed movie information on demand.
-- Hiding search results after a movie is selected.
-- Creating a cleaner IMDb-inspired user experience.
+- Transitioning from a single-result search to a multi-result search experience
+- Displaying movie posters directly within search results
+- Loading detailed movie information on demand
+- Integrating TMDb and YouTube for trailer playback
+- Hiding search results after a movie is selected
+- Creating a cleaner IMDb-inspired user experience
+- Successfully working with multiple APIs in a single application
 
 ---
 
@@ -220,8 +255,8 @@ Potential future enhancements include:
 - Dark/Light mode toggle
 - Pagination for large result sets
 - Advanced filtering
-- Movie trailers
 - Similar movie recommendations
+- Trending movies section
 
 ---
 
@@ -234,15 +269,35 @@ Multiple Results Displayed
         ↓
 User Selects Movie
         ↓
-Movie Details Loaded
+OMDb Loads Movie Details
         ↓
-Poster, Plot, Rating, Cast & Runtime Displayed
+TMDb Retrieves Trailer
+        ↓
+Trailer Embedded In App
+        ↓
+Complete Movie Experience Displayed
 ```
 
 ---
 
 ## 🙌 Reflection
 
-This project started as a simple movie search tool and evolved into a more complete interactive application. Along the way, it provided hands-on experience with APIs, asynchronous JavaScript, dynamic UI rendering, and responsive design principles.
+This project started as a simple movie search tool and evolved into a more complete movie discovery application.
 
-Most importantly, it highlighted the value of debugging, iterative development, and building features incrementally while keeping user experience at the center of 
+Along the way, it provided hands-on experience with API consumption, asynchronous JavaScript, dynamic UI rendering, responsive design, and integrating multiple external services into a single workflow.
+
+The most rewarding milestone was implementing trailer support through TMDb and YouTube, which transformed the application from a movie information tool into a richer and more engaging user experience.
+
+---
+
+## 👨‍💻 Author
+
+### Yamkela Mazwi
+
+Built as part of my JavaScript learning journey to gain hands-on experience with APIs, asynchronous programming, DOM manipulation, and modern frontend development.
+
+**GitHub:** https://github.com/yamkelamazwi
+
+---
+
+⭐ If you found this project interesting, consider giving it a star!
