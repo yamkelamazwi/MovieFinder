@@ -77,7 +77,7 @@ https://github.com/yamkelamazwi/MovieFinder
 
 ```html
 <p align="center">
-  <img src="./images/moviefinder-preview.png" alt="MovieFinder Screenshot" width="800">
+  <img src="./images/Screenshot%202025-09-03%20200748.png" alt="MovieFinder Screenshot" width="800">
 </p>
 ```
 
